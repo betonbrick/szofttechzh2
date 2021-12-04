@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarPartsMobileApp.View.AddOrEditCarpartsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Alkatrész neve" Text="{Binding CarPartsModel.Name}"/>
+            <Entry Placeholder="Alkatrész neve" Text="{Binding CarPartsModel.Qty}"/>
+            <Entry Placeholder="Alkatrész neve" Text="{Binding CarPartsModel.Price}"/>
+            <Entry Placeholder="Alkatrész neve" Text="{Binding CarPartsModel.Brand}"/>
+            <Button Text="Mentés" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
