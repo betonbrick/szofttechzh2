@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarPartsMobileApp.View.LoginPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="LoginStack">
+            <StackLayout x:Name="Logostack" VerticalOptions="FillAndExpand">
+                <Label x:Name="lblnoint" HorizontalTextAlignment="Center" TextColor="Black"/>
+                <Image x:Name="loginImage" Source="login.png" Margin="0,90,0,0"/>
+            </StackLayout>
+
+            <StackLayout x:Name="EntryStack" VerticalOptions="StartAndExpand">
+                <StackLayout.Padding>
+                    <OnIdiom x:TypeArguments="Thickness">
+                        <OnIdiom.Phone>80,0,80,0</OnIdiom.Phone>
+                    </OnIdiom>
+                </StackLayout.Padding>
+
+                <ActivityIndicator x:Name="ActCirc" Color="Blue" IsRunning="True"/>
+
+                <Label x:Name="lblusern" Text="Felhasználónév"/>
+                <Entry x:Name="entryUsern" Text="Felhasználónév"/>
+
+                <Label x:Name="lblpwd" Text="Jelszó"/>
+                <Entry x:Name="entryPwd" Text="Jelszó"/>
+
+                <Button x:Name="lgnbtn" Text="Bejelentkezés" Clicked="lgnbtn_Clicked"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

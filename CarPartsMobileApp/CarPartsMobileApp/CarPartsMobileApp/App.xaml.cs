@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarPartsMobileApp.View;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace CarPartsMobileApp
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new ListingPartsPage());
         }
 
         protected override void OnStart()

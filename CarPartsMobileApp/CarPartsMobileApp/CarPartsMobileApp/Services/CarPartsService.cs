@@ -18,14 +18,15 @@ namespace CarPartsMobileApp.Services
         }
         public void InitCarpartsService()
         {
-            CarParts.Add(new CarPartsModel(1,11233, "Brake Disc", 4, 100000, "TRW", "part.jpg"));
-            CarParts.Add(new CarPartsModel(2,41246, "Lamp", 2, 500000, "Hella", "part.jpg"));
-            CarParts.Add(new CarPartsModel(2,71243, "Tire", 4, 50000, "TOYO", "part.jpg"));
+            CarParts.Add(new CarPartsModel(1, "Brake Disc", 100000, "TRW", "part.png"));
+            CarParts.Add(new CarPartsModel(2, "Lamp", 500000, "Hella", "part.png"));
+            CarParts.Add(new CarPartsModel(3,"Tire", 50000, "TOYO", "part.png"));
+            CarParts.Add(new CarPartsModel(4, "Valami", 122222, "Akarmi", "part.png"));
         }
 
         public async Task<ObservableCollection<CarPartsModel>> GetCarPartsAsync(string inquiry)
         {
-            Thread.Sleep(3000);
+            Thread.Sleep(2300);
 
             if (inquiry != "")
             {

@@ -8,7 +8,40 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <SearchBar></SearchBar>
+            <!---<Button x:Name="Vissza" Clicked="Back_Clicked" Text="Back"></Button>-->
+            <SearchBar x:Name="srcbarParts" SearchCommand="{Binding srchcommand}" SearchCommandParameter="{Binding Text, Source={x:Reference srcbarParts}}"></SearchBar>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+            <ListView x:Name="LVParts" ItemsSource="{Binding CarParts}" SelectedItem="{Binding SelectedPart}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="7*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{Binding PictureUrl} " Grid.Column="0"/>
+                                <Label Text="{Binding Name}" FontFamily="SegoeUI" FontSize="Medium" FontAttributes="Bold" VerticalTextAlignment="Start" Grid.Column="1"/>
+                                <Label Text="{Binding Brand}" FontFamily="SegoeUI" Grid.Column="1"/>
+                                <Label Text="{Binding Price}" FontFamily="SegoeUI" Grid.Column="1" VerticalTextAlignment="End"/>
+                                <Image Source="editwheel.png" Grid.Column="3" >
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding PartsId}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Image Source="remove.png" Grid.Column="4">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" CommandParameter="{Binding PartsId}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
