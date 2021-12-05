@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CarPartsMobileApp.View.ListingPartsPage">
+             x:Class="CarPartsMobileApp.View.ListingPartsPage"
+             xmlns:behavior="clr-namespace:CarPartsMobileApp.Behaviors">
+             
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Hozzáadás" Clicked="ToolbarItem_Clicked"/>
@@ -22,15 +24,15 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Image Source="{Binding PictureUrl} " Grid.Column="0"/>
-                                <Label Text="{Binding Name}" FontFamily="SegoeUI" FontSize="Medium" FontAttributes="Bold" VerticalTextAlignment="Start" Grid.Column="1"/>
-                                <Label Text="{Binding Brand}" FontFamily="SegoeUI" Grid.Column="1"/>
-                                <Label Text="{Binding Price}" FontFamily="SegoeUI" Grid.Column="1" VerticalTextAlignment="End"/>
-                                <Image Source="editwheel.png" Grid.Column="3" >
+                                <Label Text="{Binding Name}"  FontSize="Medium" FontAttributes="Bold" VerticalTextAlignment="Start" Grid.Column="1"/>
+                                <Label Text="{Binding Price}"  Grid.Column="1"/>
+                                <Label Text="{Binding Brand}"  Grid.Column="1" VerticalTextAlignment="End"/>
+                                <Image Source="editwheel.png" Grid.Column="2" >
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding PartsId}"/>
                                     </Image.GestureRecognizers>
                                 </Image>
-                                <Image Source="remove.png" Grid.Column="4">
+                                <Image Source="remove.png" Grid.Column="3">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" CommandParameter="{Binding PartsId}"/>
                                     </Image.GestureRecognizers>

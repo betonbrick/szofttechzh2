@@ -28,15 +28,15 @@ namespace CarPartsMobileApp.View
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             TappedEventArgs tappedEventArgs = (TappedEventArgs)e;
-            CarPartsModel carPartsmodel = ((CarPartsListViewModel)BindingContext).CarParts.Where(cp => cp.PartsId == (int)tappedEventArgs.Parameter).FirstOrDefault();
-            Navigation.PushAsync(new AddOrEditCarpartsPage(carPartsmodel));
+            Carpart carparts = ((CarPartsListViewModel)BindingContext).Carparts.Where(cp => cp.PartsId == (int)tappedEventArgs.Parameter).FirstOrDefault();
+            Navigation.PushAsync(new AddOrEditCarpartsPage(carparts));
         }
 
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
             TappedEventArgs tappedEventArgs = (TappedEventArgs)e;
-            CarPartsModel carPartsmodel = ((CarPartsListViewModel)BindingContext).CarParts.Where(cp => cp.PartsId == (int)tappedEventArgs.Parameter).FirstOrDefault();
-            ((CarPartsListViewModel)BindingContext).CarParts.Remove(carPartsmodel);
+            Carpart carparts = ((CarPartsListViewModel)BindingContext).Carparts.Where(cp => cp.PartsId == (int)tappedEventArgs.Parameter).FirstOrDefault();
+            ((CarPartsListViewModel)BindingContext).Carparts.Remove(carparts);
         }
 
        

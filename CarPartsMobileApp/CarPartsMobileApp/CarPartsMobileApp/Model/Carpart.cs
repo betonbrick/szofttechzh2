@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CarPartsMobileApp.Model
 {
-   public class CarPartsModel
+   public class Carpart
     {
         public int PartsId { get; set; }
         public string Name { get; set; }
@@ -12,18 +12,20 @@ namespace CarPartsMobileApp.Model
         public string Brand { get; set; }
         public string PictureUrl { get; set; }
 
-        public CarPartsModel()
+        public Carpart()
         {
 
         }
-        public CarPartsModel(int partsId ,string name, int price, string brand, string picsUrl)
+
+        public Carpart(int partsid, string name, int price, string brand, string picsurl) 
         {
-            PartsId = partsId;
+            PartsId = partsid;
             Name = name;
             Price = price;
             Brand = brand;
-            PictureUrl = picsUrl;
-            
+            PictureUrl = picsurl;
         }
+
     }
+
 }

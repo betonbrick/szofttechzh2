@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout x:Name="LoginStack">
             <StackLayout x:Name="Logostack" VerticalOptions="FillAndExpand">
-                <Label x:Name="lblnoint" HorizontalTextAlignment="Center" TextColor="Black"/>
+                <Label x:Name="lblnoint" HorizontalTextAlignment="Center" TextColor="White" Background="Red"/>
                 <Image x:Name="loginImage" Source="login.png" Margin="0,90,0,0"/>
             </StackLayout>
 
@@ -16,13 +16,13 @@
                     </OnIdiom>
                 </StackLayout.Padding>
 
-                <ActivityIndicator x:Name="ActCirc" Color="Blue" IsRunning="True"/>
+                <ActivityIndicator x:Name="ActCirc" Color="Red" IsRunning="True"/>
 
                 <Label x:Name="lblusern" Text="Felhasználónév"/>
-                <Entry x:Name="entryUsern" Text="Felhasználónév"/>
+                <Entry x:Name="entryUsern" />
 
                 <Label x:Name="lblpwd" Text="Jelszó"/>
-                <Entry x:Name="entryPwd" Text="Jelszó"/>
+                <Entry x:Name="entryPwd" IsPassword="True"/>
 
                 <Button x:Name="lgnbtn" Text="Bejelentkezés" Clicked="lgnbtn_Clicked"/>
             </StackLayout>

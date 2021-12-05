@@ -34,5 +34,11 @@ namespace CarPartsMobileApp.Behaviors
         {
             OnBindingContextChanged();
         }
+
+        protected override void OnBindingContextChanged()
+        {
+            base.OnBindingContextChanged();
+            BindingContext= AssociatedObject.BindingContext;
+        }
     }
 }

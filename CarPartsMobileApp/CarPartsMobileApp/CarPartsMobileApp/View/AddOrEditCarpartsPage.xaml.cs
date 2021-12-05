@@ -14,25 +14,25 @@ namespace CarPartsMobileApp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddOrEditCarpartsPage : ContentPage
     {
-        public AddOrEditCarpartsPage(CarPartsModel carPartsModel =null)
+        public AddOrEditCarpartsPage(Carpart carparts =null)
         {
             InitializeComponent();
             BindingContext = new AddOrEditCarPartsViewModel();
-            if (carPartsModel !=null)
+            if (carparts !=null)
             {
-                ((AddOrEditCarPartsViewModel)BindingContext).CarParts= carPartsModel;
+                ((AddOrEditCarPartsViewModel)BindingContext).CarPart= carparts;
             }
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            CarPartsModel carPartsModel = ((AddOrEditCarPartsViewModel)BindingContext).CarParts;
-            if (carPartsModel.PartsId==0)
+            Carpart carparts = ((AddOrEditCarPartsViewModel)BindingContext).CarPart;
+            if (carparts.PartsId==0)
             {
-                carPartsModel.PictureUrl = "part.png";
+                carparts.PictureUrl = "part.png";
             }
 
-            MessagingCenter.Send(this, "AddOrEditPart", carPartsModel);
+            MessagingCenter.Send(this, "AddOrEditPart", carparts);
             Navigation.PopAsync();
         }
     }

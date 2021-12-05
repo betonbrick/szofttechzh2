@@ -8,10 +8,10 @@ namespace CarPartsMobileApp.ViewModel
 {
     public class AddOrEditCarPartsViewModel : BaseViewModel
     {
-       public CarPartsModel CarParts { get; set; }
+       public Carpart CarPart { get; set; }
        public AddOrEditCarPartsViewModel() 
         {
-            CarParts = new CarPartsModel();
+            CarPart = new Carpart();
         }
     }
 }

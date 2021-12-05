@@ -21,12 +21,39 @@ namespace CarPartsMobileApp.View
 
         private void Init()
         {
-            //lblusern.TextColor=Const. //TODO
+            BackgroundColor = Const.BackgrColor;
+            lblusern.TextColor = Const.TxtColor;
+            lblpwd.TextColor = Const.TxtColor;
+
+            ActCirc.IsVisible = false;
+            loginImage.HeightRequest = Const.LogoSize;
+            App.CheckNetAtStart(lblnoint, this);
+            entryUsern.Completed += (s, e) => entryPwd.Focus();
+            entryPwd.Completed += (s, e) => lgnbtn_Clicked(s, e);
         }
 
-        private void lgnbtn_Clicked(object sender, EventArgs e)
+        private async void lgnbtn_Clicked(object sender, EventArgs e)
         {
+            loginUser user = new loginUser(entryUsern.Text, entryPwd.Text);
+            if (user.checkEntries())
+            {
+                if (await App.InternetChecking())
+                {
+                    Tokenz result = await App.restAPIServi.login(user);
 
+                    if (result!=null)
+                    {
+                        if (Device.RuntimePlatform==Device.Android)
+                        {
+                            Application.Current.MainPage = new NavigationPage(new ListingPartsPage());
+                        }
+                    }
+                }
+            }
+            else
+            {
+                DisplayAlert("Bejelentkezés", "Rossz felhasználónév vagy jelszó!", "Oké");
+            }
         }
     }
 }

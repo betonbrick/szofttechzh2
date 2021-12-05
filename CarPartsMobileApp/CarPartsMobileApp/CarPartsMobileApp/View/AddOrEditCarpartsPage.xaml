@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Entry Placeholder="Alkatrész neve" Text="{Binding CarPartsModel.Name}"/>
-            <Entry Placeholder="Alkatrész ára" Text="{Binding CarPartsModel.Price}"/>
+            <Entry Placeholder="Alkatrész ára (FT)" Text="{Binding CarPartsModel.Price}"/>
             <Entry Placeholder="Alkatrész márkája" Text="{Binding CarPartsModel.Brand}"/>
             <Button Text="Mentés" Clicked="Button_Clicked"/>
         </StackLayout>

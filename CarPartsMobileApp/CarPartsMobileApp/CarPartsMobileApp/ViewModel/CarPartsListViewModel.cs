@@ -15,9 +15,10 @@ namespace CarPartsMobileApp.ViewModel
 {
     class CarPartsListViewModel : BaseViewModel
     {
-        public ObservableCollection<CarPartsModel> CarParts { get; set; }
+       
 
         public ICommand srchcommand => new Command<string>(loadAllCarparts); //TODO //FIXME
+        public ObservableCollection<Carpart> Carparts { get; set; }
 
         public string Name { get; set; }
 
@@ -27,42 +28,45 @@ namespace CarPartsMobileApp.ViewModel
 
         private CarPartsService carPartsService;
 
+        public void loadAllCarparts(string inquiry)
+        {
+            IsBusy = true;
+
+            Task.Run(async () =>
+            {
+                Carparts = await carPartsService.GetCarPartsAsync(inquiry);
+                IsBusy = false;
+            });
+        }
+
         public CarPartsListViewModel()
         {
             carPartsService = new CarPartsService();
             loadAllCarparts(string.Empty);
 
-            MessagingCenter.Subscribe<AddOrEditCarpartsPage, CarPartsModel>(this, "AddOrEditPart",(page,carparts)=>
+            MessagingCenter.Subscribe<AddOrEditCarpartsPage, Carpart>(this, "AddOrEditCarParts",(page,carparts)=>
             {
                 if (carparts.PartsId==0)
                 {
-                    carparts.PartsId = CarParts.Count + 1;
-                    CarParts.Add(carparts);
+                    carparts.PartsId = Carparts.Count + 1;
+                    Carparts.Add(carparts);
                 }
                 else
                 {
-                    CarPartsModel carpartsEditor = CarParts.Where(ped => ped.PartsId == carparts.PartsId).FirstOrDefault();
+                    Carpart carpartsEditor = Carparts.Where(cp => cp.PartsId == carparts.PartsId).FirstOrDefault();
 
-                    int newInd = CarParts.IndexOf(carpartsEditor);
-                    CarParts.Remove(carpartsEditor);
-                    CarParts.Add(carparts);
-                    int oldInd = CarParts.IndexOf(carparts);
+                    int newInd = Carparts.IndexOf(carpartsEditor);
+                    Carparts.Remove(carpartsEditor);
+                    Carparts.Add(carparts);
+                    int oldInd = Carparts.IndexOf(carparts);
 
-                    CarParts.Move(oldInd, newInd);
+                    Carparts.Move(oldInd, newInd);
 
                 }
             });
         }
 
-        public void loadAllCarparts(string inquiry) 
-        {
-            IsBusy = true;
-
-            Task.Run(async () =>
-           {
-               CarParts = await carPartsService.GetCarPartsAsync(inquiry);
-           });
-        }
+        
 
     }
 }

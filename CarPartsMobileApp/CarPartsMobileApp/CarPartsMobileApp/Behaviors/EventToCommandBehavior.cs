@@ -19,7 +19,7 @@ namespace CarPartsMobileApp.Behaviors
         public string EventName
         {
             get { return (string)GetValue(EventNameProperty); }
-            set { SetValue(CommandProperty, value); }
+            set { SetValue(EventNameProperty, value); }
         }
 
         public ICommand Command
